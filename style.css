@@ -1,0 +1,74 @@
+/* ========================
+ベーシック
+======================== */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(242, 239, 234);
+}
+
+/* ========================
+タイトルイメージ
+======================== */
+.title_img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+/* ========================
+フォーム要素の中央揃え
+======================== */
+.col-8 {
+    margin: 0 auto;
+}
+.theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    display: inherit;
+    margin: 0 auto;
+    background-color: #CEAC9A !important;
+    color: white;
+}
+
+/* ========================
+カードの中身
+======================== */
+
+.theme--light.v-card {
+    margin: 0 auto;
+}
+.v-sheet.v-card {
+    border-radius: 10px !important;
+}
+.subway_info {
+    font-family: "Sawarabi Gothic";
+    font-size: 15px;
+    /* background: #CEA99E; */
+    background: white;
+    color: #B38760;
+    border: solid 1px;
+    border-color: #CEA99E;
+    border-radius: 10px;
+    padding: 3px 4px 3px;
+}
+
+.wf-sawarabigothic { 
+    font-family: "Sawarabi Gothic"; 
+}
+.card_text {
+    font-family: 'Lato',sans-serif;
+}
+
+/* アイコン装飾 */
+.v-icon.v_class {
+    color: #5eadab !important;
+}
+
+/* フッター */
+#footer {
+    background-color: #C8D1D0;
+}
+.footer_text {
+    margin: 0 auto;
+    font-family: 'Lato',sans-serif;
+    color: whitesmoke;
+}

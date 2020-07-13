@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Restaurant Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+    
+    <v-container>
+        
+<!-- タイトル -->
+
+    <v-img
+    v-bind:src="titleImage"
+    class="title_img"
+    width="400px"
+    ></v-img>
+
+
+  <!-- 入力フォーム -->
+      <v-form>
+        <v-row justify="center">
+            <v-col
+             cols="8"
+
+             >
+                <v-text-field
+                label="Solo"
+                placeholder="What do you want to eat today?"
+                v-model="searchWord"
+                clearable
+                clear-icon="fas fa-times"
+                solo
+                ></v-text-field>
+             <v-btn @click="search">Search!</v-btn>
+            </v-col>
+         </v-row> 
+        </v-form>
+    
+     <!-- <input type="text" v-model="searchWord"> -->
+
+     <!-- 検索ボタン -->
+    
+</v-container>
+
+     <!-- カード表示 -->
+     <v-container>
+        <v-layout wrap>
+
+     <v-row>
+        <v-col
+            v-for="rest in restaurants"
+            cols="12"
+            sm="6"
+            md="4"
+            lg="3"
+        >
+        <!-- カード -->
+            <v-card    
+            class="mx-auto"
+            max-width="320"
+            >
+            <v-img
+            v-bind:src="rest.image_url.shop_image1"
+            height="200px"
+            ></v-img>
+
+    <v-card-title>
+     <h5> {{ rest.name }} </h5>
+    </v-card-title>
+
+    <v-card-actions>
+      
+        <p class="subway_info">{{ rest.access.line }}/{{ rest.access.station }} 徒歩{{ rest.access.walk }}分</p>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        icon
+        @click="show = !show"
+      >
+        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+      </v-btn>
+    </v-card-actions>
+
+    <v-expand-transition>
+      <div v-show="show">
+        <v-divider></v-divider>
+       
+    <!-- 飲食店詳細をここにいれる -->
+        <v-card-text
+        class="card_text"
+        >
+          <p><v-icon class="v_class">fas fa-map-marker-alt</v-icon>&emsp;{{ rest.address }}</p> </br>  
+          <p>&nbsp;<v-icon class="v_class">fas fa-mobile</v-icon>&emsp;{{ rest.tel }}</p></br>
+          <p><v-icon class="v_class">far fa-clock</v-icon>&nbsp;{{ rest.opentime }}</p></br>
+          <p><v-icon class="v_class">fas fa-credit-card</v-icon>&emsp;{{ rest.credit_card }}</p>
+
+        </v-card-text>
+      </div>
+    </v-expand-transition>
+  </v-card>
+</v-col>
+</v-row>
+</v-layout>>
+</v-container>
+
+<v-footer
+ height="80px"
+ id="footer"
+>
+        <div class="footer_text">&copy; Small app from butter</div>
+  </v-footer
+  >
+
+    </div>
+
+  <!-- vue cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- axios cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
